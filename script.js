@@ -2,12 +2,11 @@ const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-const numberOfParticles = 50;
+const numberOfParticles = 10;
 let particlesArray = [];
 
-//DIBUJAMOS NUESTRO OBJECTO USANDO JAVASCRIPT
-const pumpkin = new Image();
-pumpkin.src = 'Images/Images/monster.png'
+
+
 
 //Sprit img
 const pumpkins = new Image();
@@ -21,7 +20,7 @@ class Particle{
         this.x = Math.random() * canvas.width; //LAS PARTICULAS APARECERAN DE FORMA ALEATORIA EN TODO EL EJE X DEL CANVAS
         this.y = Math.random() * canvas.height;
         this.size = Math.random() * 150 + 50;
-        this.speed = Math.random() * 3 + 1;
+        this.speed = Math.random() * 2 + 1;
         this.angle = Math.random() * 360;
         this.spin = Math.random() < 0.5 ? -1 : 1; // LAS PARTICULAS GIRAN A LA IZQUIERDA SI EL NUMERO RANDOM ES NEGATIVO Y VICEVERSA
          // SPRITE IMG
@@ -47,8 +46,8 @@ class Particle{
         if (this.y - this.size > canvas.height){
             this.y = 0 - this.size; //<---------------CHECK NO SE QUE HACE REALMENTE
             this.x = Math.random() * canvas.width;
-            this.size = Math.random() * 20 + 50;
-            this.speed = Math.random() * 3 + 1;
+            this.size = Math.random() * 150 + 50;
+            this.speed = Math.random() * 2 + 1;
            
         }
         this.y += this.speed; // UPDATE CREAMOS EL EFECTO DE CAIDA
@@ -75,7 +74,12 @@ function animate(){       //ESTO CREARE UN ANIMATION LOOP
         particlesArray[i].draw();
         particlesArray[i].update();
     }
-    requestAnimationFrame(animate); // *** Esto creara el animation loop *** // IMPORTANTE
+
+    // Draw Character
+        monsterCharacter.draw();
+        
+        requestAnimationFrame(animate); // *** Esto creara el animation loop *** // IMPORTANTE
 }
 animate()
 
+///////// CHARACTER
