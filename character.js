@@ -19,16 +19,24 @@ class Character{
     handleKeyDown(event) {
       switch (event.keyCode) {
         case 37: // left arrow key
-          this.x -= this.speed;
+          this.x -= this.speed *8;
+          if (this.x < -this.width/2) {
+            this.x = canvas.width + this.width/2;
+          }
           break;
-        case 39: // right arrow key
-          this.x += this.speed;
+          case 39: // right arrow key
+          if (this.x + this.speed * 8 + this.width / 2 < canvas.width) { // check if the character is within the canvas width
+            this.x += this.speed * 8;
+          }
           break;
         case 32: // spacebar
-          this.x -= this.speed * 12     ;
+          this.x -= this.speed * 18;
           break;
       }
     }
+
+
+    
 
     destroy() {
       window.removeEventListener('keydown', this.handleKeyDown);
