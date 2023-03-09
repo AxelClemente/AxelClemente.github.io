@@ -1,3 +1,9 @@
+const song = document.getElementById('song');
+
+window.addEventListener('keydown', () => {
+    song.play();
+});
+
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;

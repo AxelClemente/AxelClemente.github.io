@@ -11,6 +11,27 @@ class Character{
         this.y = window.innerHeight - 90;
         this.width = 392/3;
         this.height = 510/3;
+        this.speed = 10;
+        this.handleKeyDown = this.handleKeyDown.bind(this);
+        window.addEventListener('keydown', this.handleKeyDown);
+    }
+
+    handleKeyDown(event) {
+      switch (event.keyCode) {
+        case 37: // left arrow key
+          this.x -= this.speed;
+          break;
+        case 39: // right arrow key
+          this.x += this.speed;
+          break;
+        case 32: // spacebar
+          this.x -= this.speed * 12     ;
+          break;
+      }
+    }
+
+    destroy() {
+      window.removeEventListener('keydown', this.handleKeyDown);
     }
 
     draw(){
