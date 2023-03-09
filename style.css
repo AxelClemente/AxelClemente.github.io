@@ -12,3 +12,25 @@ canvas{
     margin: auto;
     display: block;
 }
+
+#count {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 44px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #lives {
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    font-size: 44px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

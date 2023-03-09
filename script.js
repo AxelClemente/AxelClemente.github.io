@@ -1,4 +1,4 @@
-const song = document.getElementById('song');
+// const song = document.getElementById('song');
 
 window.addEventListener('keydown', () => {
     song.play();
@@ -26,6 +26,83 @@ candy.src = 'Images/Images/candyback.png'
 //Sprit pumpkin img
 const pumpkins = new Image();
 pumpkins.src = 'Images/Images/pumpkings.png'
+
+
+function circleCollision(x1, y1, r1, x2, y2, r2) {
+    const distance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+    return distance < r1 + r2;
+}
+
+let numCollisions = 0;
+
+// function checkCollisions(monsterCharacter) {
+//     for (let i = 0; i < particlesArray.length; i++) {
+//       const particle = particlesArray[i];
+//       if (circleCollision(
+//         monsterCharacter.x, monsterCharacter.y, monsterCharacter.width / 2,
+//         particle.x, particle.y, particle.size / 2
+//       )) {
+//         // Handle collision with particle
+//         console.log('Collided with particle!');
+//       }
+//     }
+  
+//     for (let i = 0; i < candyArray.length; i++) {
+//       const candy = candyArray[i];
+//       if (circleCollision(
+//         monsterCharacter.x, monsterCharacter.y, monsterCharacter.width / 2,
+//         candy.x, candy.y, candy.size / 2
+//       )) {
+//         // Handle collision with candy
+//         console.log('Collided with candy!');
+//         numCollisions++;
+//         document.getElementById("count").innerHTML = "Candys: " + numCollisions;
+//       }
+//     }
+// }
+
+function checkCollisions(monsterCharacter) {
+    let collidedWithParticle = false;
+    let collidedWithCandy = false;
+    
+    for (let i = 0; i < particlesArray.length; i++) {
+      const particle = particlesArray[i];
+      if (circleCollision(
+        monsterCharacter.x, monsterCharacter.y, monsterCharacter.width / 2,
+        particle.x, particle.y, particle.size / 2
+      )) {
+        // Handle collision with particle
+        collidedWithParticle = true;
+      }
+    }
+  
+    for (let i = 0; i < candyArray.length; i++) {
+      const candy = candyArray[i];
+      if (circleCollision(
+        monsterCharacter.x, monsterCharacter.y, monsterCharacter.width / 2,
+        candy.x, candy.y, candy.size / 2
+      )) {
+        // Handle collision with candy
+        collidedWithCandy = true;
+        numCollisions++;
+      }
+    }
+  
+    if (collidedWithCandy) {
+      document.getElementById("count").innerHTML = "Candys: " + numCollisions;
+    }
+    
+    if (collidedWithParticle) {
+      document.getElementById("lives").innerHTML = "Lives: " + numCollisions;
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
 
 class Candy{
     constructor(){
@@ -141,6 +218,9 @@ function animate(){       //ESTO CREARE UN ANIMATION LOOP
 
     // Draw Character
     monsterCharacter.draw();
+
+    // Check for collisions
+    checkCollisions(monsterCharacter);
            
     requestAnimationFrame(animate); // *** Esto creara el animation loop *** // IMPORTANTE
 }
