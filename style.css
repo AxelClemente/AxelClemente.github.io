@@ -1,3 +1,7 @@
+*{
+    font-family: 'Creepster';
+}
+
 canvas{
     position: absolute;
     background-color: rgb(135, 135, 186);
@@ -18,7 +22,7 @@ canvas{
     top: 20px;
     right: 20px;
     font-size: 44px;
-    color: white;
+    color: rgb(153,199,11);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,7 +33,7 @@ canvas{
     top: 100px;
     right: 20px;
     font-size: 44px;
-    color: white;
+    color: rgb(239,116,3);
     display: flex;
     justify-content: center;
     align-items: center;
