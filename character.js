@@ -1,5 +1,5 @@
-const canvas = document.getElementById('canvas1');
-const ctx = canvas.getContext('2d');
+let canvas = document.getElementById('canvas1');
+let ctx = canvas.getContext('2d');
 
 //DIBUJAMOS NUESTRO OBJECTO USANDO JAVASCRIPT
 const character = new Image();
