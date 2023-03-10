@@ -13,9 +13,11 @@ canvas.height = window.innerHeight;
 const numberOfParticles = 10;
 let particlesArray = [];
 
+
 //Candy
 const numberOfCandys = 10;
 let candyArray = [];
+
 
 
 //Sprit candy img
@@ -124,18 +126,25 @@ class Candy{
         ctx.drawImage(candy, this.frameX * this.spriteSize, this.frameY * this.spriteSize, this.spriteSize, this.spriteSize, 0 - this.size/2, 0 - this.size/2, this.size, this.size);
         ctx.restore(); 
     }
-
     update(){
         this.angle += 2;
         if (this.y - this.size > canvas.height){
-            this.y = 0 - this.size; //<---------------CHECK NO SE QUE HACE REALMENTE
+            this.y = 0 - this.size; 
             this.x = Math.random() * canvas.width;
             this.size = Math.random() * 150 + 50;
-            this.speed = Math.random() * 2 + 1;
-           
+            if (candyArray.length % 3 === 0) { // update speed if the candyArray length is a multiple of 3
+                this.speed *= 1.015;
+            }
         }
-        this.y += this.speed; // UPDATE CREAMOS EL EFECTO DE CAIDA
+        this.y += this.speed;
+    
+        // add new candy to candyArray if it's length is less than the desired number of candies
+        if (candyArray.length < numberOfCandys) {
+            candyArray.push(new Candy());
+        }
     }
+    
+    
 
 }
 
@@ -223,12 +232,15 @@ function animate(){       //ESTO CREARE UN ANIMATION LOOP
     for (let i=0; i < particlesArray.length; i++){
         particlesArray[i].draw();
         particlesArray[i].update();
+        console.log("calabaza",particlesArray)
     }
 
     // Draw candy
       for (let i = 0; i < candyArray.length; i++) {
         candyArray[i].draw();
         candyArray[i].update();
+        console.log("joderrrrrrrrrrr",candyArray)
+        
     }
 
     // Draw Character
