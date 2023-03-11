@@ -12,29 +12,73 @@
         <title>The Ultimate Haloween Game</title>
         <link rel="stylesheet" href="./style.css">
     </head>
-    <body>
 
+    <body>
+        <!--==================== SONG ====================-->
         <div>
             <audio id="song">
                 <source src="Audio/slow-calm-dark-dark-ambient-halloween-walth-horror-and-creepy-116010.mp3">
             </audio>
         </div>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">
+                    <img src="Images/Images/pumpkin_face_light_2.png" alt="" class="nav__logo-img">
+                    The Ultimate Halloween Game
+                </a>
+    
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link active-link">Home</a>
+                        </li>
+    
+                        <li class="nav__item">
+                            <a href="#about" class="nav__link">About</a>
+                        </li>
+    
+                        <li class="nav__item">
+                            <a href="#trick" class="nav__link">Candy</a>
+                        </li>
+    
+                        <li class="nav__item">
+                            <a href="#new" class="nav__link">New</a>
+                        </li>
+    
+                        <button class="button button--ghost">Play</button>
+                    </ul>
+    
+                    <div class="nav__close" id="nav-close">
+                        <i class='bx bx-x'></i>
+                    </div>
+    
+                    <img src="Images/Images/monster.png" alt="" class="nav__img">
+                </div>
+    
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
+    
+            </nav>
+        </header>
+        <!--==================== /HEADER ====================-->
 
+        <!--==================== CANVAS ====================-->
         <canvas id="canvas1" class="canvas-hidden">
             
         </canvas>
-        <div>
-            <div id="count">0</div>
-            <div id="lives">Lives: 3</div>
-            
-        </div>
 
-        <div>
-            <button>Clickkkkkkkkkkkkkkkkkkk</button>
+        <div class="canvas-hidden">
+            <div id="count" >0</div>
+            <div id="lives">Lives: 3</div>          
         </div>
-        
 
         <script type="module" src="script.js"></script>
         <script src="character.js"></script>
+
+        <!--==================== /CANVAS ====================-->
+
+
     </body>
 </html>
