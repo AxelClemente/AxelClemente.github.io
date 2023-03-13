@@ -4,6 +4,9 @@ window.addEventListener('keydown', () => {
     song.play();
 });
 
+const collisionSound = document.getElementById('collision-audio');
+const collisionSoundEating = document.getElementById('collision-audio-eating');
+
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
@@ -60,6 +63,9 @@ function checkCollisions(monsterCharacter, animationId) {
       )) {
         particlesArray.splice(i, 1);
         i--;
+
+        // Play the collision sound
+        collisionSound.play();
       }
     }
     
@@ -85,6 +91,10 @@ function checkCollisions(monsterCharacter, animationId) {
       )) {
         candyArray.splice(i, 1);
         i--;
+
+        // Play the collision sound
+        collisionSoundEating.play();
+
         numCollisions++;
         document.getElementById("count").innerHTML = "Candys: " + numCollisions;
         
