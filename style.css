@@ -27,12 +27,17 @@ canvas{
     display: flex;
     flex-direction: row;
     align-items: center;
-  }
+}
+
+.info-wrapper {
+    padding-top: 20px;
+}
 
 
 
 #count {
-    position: relative;   
+    position: relative;
+    
     left: 48%;
     transform: translateX(-50%);
     font-size: 36px;
@@ -41,10 +46,12 @@ canvas{
     justify-content: center;
     align-items: center;
     z-index: 10;
+    
 }
 
 #lives {
-    position: relative;   
+    position: relative;  
+    
     left: 48%;
     transform: translateX(-50%);
     font-size: 36px;
@@ -53,6 +60,7 @@ canvas{
     justify-content: center;
     align-items: center;
     z-index: 10;
+    
 }
 
 
@@ -67,7 +75,7 @@ canvas{
 
     /*========== Colors ==========*/
     --hue: 14;
-    --first-color: hsl(var(--hue), 91%, 54%);
+    --first-color: hsl(var(--hue), 91%, 4%);
     --first-color-alt: hsl(var(--hue), 91%, 50%);
     --title-color: hsl(var(--hue), 4%, 100%);
     --text-color: hsl(var(--hue), 4%, 85%);
